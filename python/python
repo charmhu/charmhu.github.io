@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>python作用域 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前几天师兄们找工作，面试笔试时公司基本不看你的研究生作品，只是针对某一语言进行深入的考核，可以说是很直接的考核造航母的题了。吓得我赶紧买了本流畅的python来看看，嗯，大佬的书果然看不懂，没办法，既然决定做了，那就一点点来吧~~ 变量作用域python的作用域一共有四种：  L （Local） 局部作用域  E （Enclosing） 闭包函数外的函数中  G （Global） 全局作用域  B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python作用域">
+<meta property="og:url" content="http:&#x2F;&#x2F;huwj.work&#x2F;python&#x2F;python">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前几天师兄们找工作，面试笔试时公司基本不看你的研究生作品，只是针对某一语言进行深入的考核，可以说是很直接的考核造航母的题了。吓得我赶紧买了本流畅的python来看看，嗯，大佬的书果然看不懂，没办法，既然决定做了，那就一点点来吧~~ 变量作用域python的作用域一共有四种：  L （Local） 局部作用域  E （Enclosing） 闭包函数外的函数中  G （Global） 全局作用域  B">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-08-29T12:19:54.000Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://huwj.work"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-python" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/python/python" class="article-date">
+  <time datetime="2018-08-29T02:53:55.000Z" itemprop="datePublished">2018-08-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python作用域
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前几天师兄们找工作，面试笔试时公司基本不看你的研究生作品，只是针对某一语言进行深入的考核，可以说是很直接的考核造航母的题了。吓得我赶紧买了本流畅的python来看看，嗯，大佬的书果然看不懂，没办法，既然决定做了，那就一点点来吧~~</p>
+<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>python的作用域一共有四种：<br></p>
+<ul>
+<li><p>L （Local） 局部作用域<br></p>
+</li>
+<li><p>E （Enclosing） 闭包函数外的函数中<br></p>
+</li>
+<li><p>G （Global） 全局作用域<br></p>
+</li>
+<li><p>B （Built-in） 内建作用域<br></p>
+<p>  globalVar = 100           #G<br>  def test_scope():</p>
+<pre><code>enclosingVar = 200    #E
+def func():
+       localVar = 300    #L</code></pre><p>  print <strong>name</strong>            #B</p>
+</li>
+</ul>
+<h3 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h3><p>python除了def、class、lambda外，其他诸如if/elif/else try/except for/while并不能改变其作用域。定义在他们之内的变量，外部还是可以访问的。<br><br>在函数内部的变量声明，除非特别的声明为全局变量，否则均默认为局部变量。有些情况需要在函数内   部定义全局变量，这时可以使用global关键字来声明变量的作用域为全局。局部变量域就像一个 栈，仅仅是暂时的存在，依赖创建该局部作用域的函数是否处于活动的状态。所以，一般建议尽量少定义全局变量，因为全局变量在模块文件运行的过程中会一直存在，占用内存空间。</p>
+<pre><code>if True:
+    a=&quot;i am a student&quot;  
+print(a)  
+&gt;&gt;&gt;&quot;i am a student&quot;</code></pre><p>定义在def、class、lambda内的变量，就变成了局部的作用域，局部作用域会覆盖全局作用域，但不会对全局作用域有影响。<br></p>
+<pre><code>m=1#全局
+def fun():
+    m=2
+    return m
+print(fun())
+&gt;&gt;&gt;2
+print(m)
+&gt;&gt;&gt;1</code></pre><p><strong>在函数内部想要直接对全局变量进行操作，则会报错，如fun1()</strong>，这是因为对<strong>var</strong>变量进行操作，故在编译时认为其为局部变量，所以不会升级到想群居变量进行寻找，如实在想用，则在局部变量之前加上global 变量，之后可以对全局变量进行操作，如fun3()。 倘若只是对其引用，则可使用全局变量的值，如fun2()</p>
+<pre><code>var = 1
+var1=2
+def fun1():
+    var = var+1
+    return var
+print(fun1())
+&gt;&gt;&gt;报错
+def fun2():
+    return var1
+print(fun2())
+&gt;&gt;&gt;1
+def fun3():
+    global var
+    return var+1
+print(fun3())
+&gt;&gt;&gt;2    </code></pre><h3 id="闭包作用域-嵌套与闭包"><a href="#闭包作用域-嵌套与闭包" class="headerlink" title="闭包作用域(嵌套与闭包)"></a>闭包作用域(嵌套与闭包)</h3><h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><p>闭包的定义：如果在一个内部函数里，对在外部函数内<strong>（上一级函数但不是在全局作用域）</strong>的变量进行引用，那么<strong>内部函数</strong>就被认为是闭包(closure)<br><br><strong>Python支持一种特性叫做函数闭包（function closures）：在非全局（global）作用域中定义inner函数（即嵌套函数）时，会记录下它的嵌套函数namespaces（嵌套函数作用域的locals），可以称作：定义时状态，可以通过func_closure 这个属性来获得inner函数的外层嵌套函数的namespaces。</strong><br></p>
+<pre><code>def outer():  
+    x = 1  
+    def inner():  
+        print x # 1  
+return inner  
+foo = outer()  
+print(foo.func_closure) #2 doctest: +ELLIPSIS   
+foo()
+&gt;&gt;&gt;(&lt;cell at 0x189da2f0: int object at 0x188b9d08&gt;,)
+&gt;&gt;&gt;1</code></pre><p>在这个例子中，我们可以看到inner函数作为返回值被outer返回，然后存储在foo变量中，我们可以通过foo()来调用它。但是真的可以跑起来吗？让我们来关注一下作用域规则。<br><br>python里运行的东西，都按照作用域规则来运行。<br></p>
+<ol>
+<li>x是outer函数里的local变量.<strong>****</strong><br></li>
+<li>在#1处，inner打印x时，python在inner的locals中寻找x，找不到后再到外层作用域（即outer函数）中寻找，找到后打印。<br></li>
+</ol>
+<p>看起来一切OK，那么从变量生命周期（lifetime）的角度看，会发生什么呢：<br></p>
+<ol>
+<li>x是outer的local变量，这意味着只有outer运行时，x才存在。那么按照python运行的模式，我们不能在outer结束后再去调用inner。<br></li>
+<li>在我们调用inner的时候，x应该已经不存在了。应该发生一个运行时错误或者其他错误。<br>但是这一些都没有发生，inner函数依旧正常执行，打印了x。<br></li>
+</ol>
+<h4 id="函数嵌套："><a href="#函数嵌套：" class="headerlink" title="函数嵌套："></a>函数嵌套：<br></h4><p>先看一个例子：</p>
+<pre><code>def test_scopt():
+    variable = 200
+    print(variable)
+    def func():
+        print(variable)
+    #这里的变量variable在E中绑定了内存对象200。
+    func()
+variable = 100
+test_scopt()
+print(variable)
+&gt;&gt;&gt;200
+&gt;&gt;&gt;200
+&gt;&gt;&gt;100</code></pre><p>1.#1的地方，python寻找名为x的local变量，在inner作用域内的locals中寻找不到，python就在外层作用域中寻找，其外层是outer函数。x是定义在outer作用域范围内的local变量。<br><br>2.#2的地方，调用了inner函数。这里需要特别注意：inner也只是一个变量名，是遵循python的变量查找规则的（Python先在outer函数的作用域中寻找名为inner的local变量）<br><br>函数没有什么特殊的，它和python里的其他东西一样，都属于对象，其父类是object。<br><br>这意味着:<br><br><strong>1. 函数和其他变量是一样，变量是可以传递和修改值的，函数也可以作为变量<br><br>2. 函数也可以作为函数的参数或者函数的返回值。</strong><br></p>
+<pre><code>def outer():  
+    x = 1  
+        def inner():  
+            print(x) # 1  
+    inner() # 2  
+outer()
+&gt;&gt;&gt;1</code></pre><p>如下的例子：<br></p>
+<pre><code>def add(x, y):   
+    return x + y   
+def sub(x, y):   
+    return x - y   
+def apply(func, x, y): # 1   
+    return func(x, y) # 2   
+print(apply(add, 2, 1)) # 3  
+print(apply(sub, 2, 1))
+&gt;&gt;&gt;3
+&gt;&gt;&gt;2  </code></pre><p>这个例子中，add和sub就是两个普通的函数对象。#1中，func这个参数用来接收函数变量（和其他参数接收变量一样）。在#2处，用来执行func参数传递进来的函数。在#3处，我们把add函数作为参数传递给apply，在apply中执行，并返回结果。<br></p>
+<h3 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h3><p>即在模块层次中定义的变量，每一个模块都是一个全局作用域。也就是说，在模块文件顶层声明的变量具有全局作用域，从外部开来，模块的全局变量就是一个模块对象的属性。<br><br><strong>注意：全局作用域的作用范围仅限于单个模块文件内</strong></p>
+<pre><code>spam = 99
+def tester():
+    def nested():
+        global spam
+        print(&apos;current=&apos;,spam)
+        spam = 200
+return nested
+tester()()
+print(spam)
+&gt;&gt;&gt;current= 99
+&gt;&gt;&gt;200</code></pre><p>上段代码中，定义了一个内部函数，并作为一个变量返回，所以tester()相当于nested，而不是nested()，所以tester()()相当于nested()。这里需要注意的是<strong>global关键字，使用了这个关键字之后，在nested函数中使用的spam变量就是全局作用域中的spam变量</strong>，而不会新生成一个局部作用域中的spam变量。</p>
+<h3 id="内建作用域"><a href="#内建作用域" class="headerlink" title="内建作用域"></a>内建作用域</h3><p>系统内固定模块里定义的变量，如预定义在builtin 模块内的变量。</p>
+<h2 id="nonlocal关键字"><a href="#nonlocal关键字" class="headerlink" title="nonlocal关键字"></a>nonlocal关键字</h2><p>在<strong>L中修改E中</strong>的变量。这是Python3.x增加的新特性，在python2.x中还是无法使用。</p>
+<pre><code>def outer():
+    count = 10
+        def inner():
+            nonlocal count
+            count = 20
+            print(count)
+    inner()
+    print(count)
+outer()
+&gt;&gt;&gt;20
+&gt;&gt;&gt;20</code></pre><p>由于声明了<strong>nonlocal</strong>，这里inner中使用的count变量就是E，即outer函数中生命的count变量，所以输出两个20。</p>
+<h2 id="gloable关键字"><a href="#gloable关键字" class="headerlink" title="gloable关键字"></a>gloable关键字</h2><p>参考全局作用域</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://huwj.work/python/python" data-id="ck3gl3nsq000xvkezf30b4dr7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/python/python1" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          python切片
+        
+      </div>
+    </a>
+  
+  
+    <a href="/js/js" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">js生命周期</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AR/">AR</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/book/">book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/office/">office</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%82%B9%E6%BB%B4%E7%94%9F%E6%B4%BB/">点滴生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/%E7%AE%97%E6%B3%95/%E6%9C%80%E5%A4%A7%E8%BF%9E%E7%BB%AD%E5%AD%90%E5%BA%8F%E5%88%97%E4%B9%8B%E5%92%8C">最大连续子序列之和</a>
+          </li>
+        
+          <li>
+            <a href="/spring/spring-aop-1">spring_aop_代码实现</a>
+          </li>
+        
+          <li>
+            <a href="/spring/spring-aop">spring_aop</a>
+          </li>
+        
+          <li>
+            <a href="/spring/spring1">spring_DI</a>
+          </li>
+        
+          <li>
+            <a href="/java/leetcode">leetcode</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

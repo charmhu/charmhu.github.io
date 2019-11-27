@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>js生命周期 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="实在是不想去换语言了，java c python 加上前台的js css html。。。我得脑子已经不允许我再去换其他的语言了，比如这个该死的c++，对，老子就是不学。倔强的我选择了web方式作为自己的毕设的，说实话还是慌得一批，没办法，硬来吧，但愿这个js语言不会让我失望。 变量生命周期for关于js变量的生命周期很有意思，对于for循环中定义的i变量，其生命周期在循环结束后仍然是有效的。for">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js生命周期">
+<meta property="og:url" content="http:&#x2F;&#x2F;huwj.work&#x2F;js&#x2F;js">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="实在是不想去换语言了，java c python 加上前台的js css html。。。我得脑子已经不允许我再去换其他的语言了，比如这个该死的c++，对，老子就是不学。倔强的我选择了web方式作为自己的毕设的，说实话还是慌得一批，没办法，硬来吧，但愿这个js语言不会让我失望。 变量生命周期for关于js变量的生命周期很有意思，对于for循环中定义的i变量，其生命周期在循环结束后仍然是有效的。for">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-08-30T12:27:10.000Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://huwj.work"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/js/js" class="article-date">
+  <time datetime="2018-08-21T12:26:04.000Z" itemprop="datePublished">2018-08-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js生命周期
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>实在是不想去换语言了，java c python 加上前台的js css html。。。我得脑子已经不允许我再去换其他的语言了，比如这个该死的c++，对，老子就是不学。倔强的我选择了web方式作为自己的毕设的，说实话还是慌得一批，没办法，硬来吧，但愿这个js语言不会让我失望。</p>
+<h1 id="变量生命周期"><a href="#变量生命周期" class="headerlink" title="变量生命周期"></a>变量生命周期</h1><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>关于js变量的生命周期很有意思，对于for循环中定义的i变量，其生命周期在循环结束后仍然是有效的。<code>for (var i=0; i &lt; 10; i++)
+{
+    doSomething(i);
+}
+alert(i); //10</code><br>这样的特性对于我们传统的习惯来说是不可理解的，这是因为JavaScript变量作用范围没有语句块的概念，他并不像JAVA一样在for循环内部声明的变量，在for循环外部就不能使用。</p>
+<h3 id="全局和局部"><a href="#全局和局部" class="headerlink" title="全局和局部"></a>全局和局部</h3><pre><code>`&lt;script type=&quot;text/javascript&quot;&gt;
+        var global_one = &quot;I am global&quot;;//全局
+        function fun(){
+            global_two = &quot;I am global too&quot;;//全局
+            var local_one = &quot;I am local&quot;;//局部
+        }
+        alert(global_one); // &quot;I am global&quot;
+        //alert(global_two);// error
+        //alert(local_one);//error
+
+        fun();
+        alert(global_one); // &quot;I am global&quot;
+        alert(global_two);// &quot;I am global two&quot;
+        //alert(local_one);//error
+    &lt;/script&gt;`</code></pre><p>从上面的实例可以看到两点：<br><br>第一，JavaScript中的方法内部定义变量的时候如果没有加var，就是全局变量；否则为局部变量；<br><br>第二，当fun()没有执行的时候，方法内部的全局变量是不会声明并且定义的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://huwj.work/js/js" data-id="ck3gl3nsk000tvkez4rtvgggh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/python/python" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          python作用域
+        
+      </div>
+    </a>
+  
+  
+    <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/router" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Router</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AR/">AR</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/book/">book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/office/">office</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%82%B9%E6%BB%B4%E7%94%9F%E6%B4%BB/">点滴生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/%E7%AE%97%E6%B3%95/%E6%9C%80%E5%A4%A7%E8%BF%9E%E7%BB%AD%E5%AD%90%E5%BA%8F%E5%88%97%E4%B9%8B%E5%92%8C">最大连续子序列之和</a>
+          </li>
+        
+          <li>
+            <a href="/spring/spring-aop-1">spring_aop_代码实现</a>
+          </li>
+        
+          <li>
+            <a href="/spring/spring-aop">spring_aop</a>
+          </li>
+        
+          <li>
+            <a href="/spring/spring1">spring_DI</a>
+          </li>
+        
+          <li>
+            <a href="/java/leetcode">leetcode</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

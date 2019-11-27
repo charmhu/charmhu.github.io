@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>openstack跟hadoop区别 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="openstack仿照的Amazon的云，hadoop仿照的是Google的云 openstack注重的是虚拟化&#x2F;虚拟机及其配套的服务，hadoop注重的是海量的数据分析和处理。  OpenStack 主要目的是做一整套的云计算基础构架。包括 云计算(Compute), 网络(Network)，对象存贮(Object Store)，镜像文件存储 (Image)，身份认证(Authenticati">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openstack跟hadoop区别">
+<meta property="og:url" content="http:&#x2F;&#x2F;huwj.work&#x2F;%E4%BA%91%E8%AE%A1%E7%AE%97&#x2F;openstack%E8%B7%9Fhadoop%E5%8C%BA%E5%88%AB">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="openstack仿照的Amazon的云，hadoop仿照的是Google的云 openstack注重的是虚拟化&#x2F;虚拟机及其配套的服务，hadoop注重的是海量的数据分析和处理。  OpenStack 主要目的是做一整套的云计算基础构架。包括 云计算(Compute), 网络(Network)，对象存贮(Object Store)，镜像文件存储 (Image)，身份认证(Authenticati">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-22T08:59:08.000Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://huwj.work"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-openstack跟hadoop区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/%E4%BA%91%E8%AE%A1%E7%AE%97/openstack%E8%B7%9Fhadoop%E5%8C%BA%E5%88%AB" class="article-date">
+  <time datetime="2018-09-22T08:54:48.000Z" itemprop="datePublished">2018-09-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      openstack跟hadoop区别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>openstack仿照的Amazon的云，hadoop仿照的是Google的云</p>
+<p>openstack注重的是虚拟化/虚拟机及其配套的服务，hadoop注重的是海量的数据分析和处理。</p>
+<hr>
+<p>OpenStack 主要目的是做一整套的云计算基础构架。包括 云计算(Compute), 网络(Network)，对象存贮(Object Store)，镜像文件存储 (Image)，身份认证(Authentication)，BlockStorage 以及 前端UI 。</p>
+<p>OpenStack的每个模块都对外提供API，可以独立供云用户调用，在OpenStack内部，每个模块之间的相互调用也是用这些API.</p>
+<p>而 Hadoop 是一个分布式数据库。举个例子：OpenStack 中 Object Store 模块可以选择用Hadoop来支持。如果把 Openstack 比作WIndows的话，Hadoop 相当于Sql Server。</p>
+<hr>
+<p>openstack是管理虚拟机的，比如xen，kvm等。它所谓的云就是一堆的虚拟机。</p>
+<p>hadoop是负责分布式计算和分布式存储。就是把一个执行任务分开，放到不同的节点（物理机）去跑，最后汇总。</p>
+<hr>
+<p>OpenStack是IaaS(基础设施即服务)‎虚拟机管理软件，让任何人都可以自行建立和提供云端运算服务。<br>而hadoop是一个分布式文件系统+分布式计算平台的开源方案，侧重于hdfs云存储与mapreduce云数据分析等方面</p>
+<hr>
+<p>OpenStack主要做资源的虚拟化，Hadoop主要用来做超大数据处理，还可以做数据挖掘</p>
+<hr>
+<p>Openstack是把大机器虚拟成很多小机器从而达到大的分成小的来用，大大提高资源使用率。<br>Hadoop是把小机器合起来用，用于解决单台大机器无法解决的计算和存储等问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://huwj.work/%E4%BA%91%E8%AE%A1%E7%AE%97/openstack%E8%B7%9Fhadoop%E5%8C%BA%E5%88%AB" data-id="ck3gl3nso000uvkez2cid85eu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/office/word%E5%8A%A0%E9%A1%B5%E7%A0%81" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          word加页码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/uncategorized/%E6%AD%BB%E9%94%81" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">死锁</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AR/">AR</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/book/">book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/office/">office</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%82%B9%E6%BB%B4%E7%94%9F%E6%B4%BB/">点滴生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/%E7%AE%97%E6%B3%95/%E6%9C%80%E5%A4%A7%E8%BF%9E%E7%BB%AD%E5%AD%90%E5%BA%8F%E5%88%97%E4%B9%8B%E5%92%8C">最大连续子序列之和</a>
+          </li>
+        
+          <li>
+            <a href="/spring/spring-aop-1">spring_aop_代码实现</a>
+          </li>
+        
+          <li>
+            <a href="/spring/spring-aop">spring_aop</a>
+          </li>
+        
+          <li>
+            <a href="/spring/spring1">spring_DI</a>
+          </li>
+        
+          <li>
+            <a href="/java/leetcode">leetcode</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
