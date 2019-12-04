@@ -13,17 +13,20 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>archives: 2019/11 | Huwj.work</title>
+  <title>strcpy_sstrcpy&amp; | Huwj.work</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Huwj.work">
-<meta property="og:url" content="http:&#x2F;&#x2F;huwj.work&#x2F;archives&#x2F;2019&#x2F;11&#x2F;index.html">
+  <meta name="description" content="在编写C++程序时，不可避免会遇到strcpy()函数和其安全版本strcpy_s()函数，其实之所以会推出_s版本的函数，就是为了使编程更加安全，然而为了保证安全，也就会更容易使我们编写的代码“被报错”。所以这里来简略说一下strcpy()函数和strcpy_s()函数的使用及注意事项。 这道理是为什么呢？ 单单是避免上图中的错误代码4996的情况，可以使用编辑器的选择性提供warning功能，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="strcpy_sstrcpy&amp;">
+<meta property="og:url" content="http:&#x2F;&#x2F;huwj.work&#x2F;uncategorized&#x2F;strcpy_sstrcpy&amp;&#x2F;index.html">
 <meta property="og:site_name" content="Huwj.work">
+<meta property="og:description" content="在编写C++程序时，不可避免会遇到strcpy()函数和其安全版本strcpy_s()函数，其实之所以会推出_s版本的函数，就是为了使编程更加安全，然而为了保证安全，也就会更容易使我们编写的代码“被报错”。所以这里来简略说一下strcpy()函数和strcpy_s()函数的使用及注意事项。 这道理是为什么呢？ 单单是避免上图中的错误代码4996的情况，可以使用编辑器的选择性提供warning功能，">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-22T08:39:56.234Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Huwj.work" type="application/atom+xml">
@@ -84,7 +87,7 @@ var themeMenus = {};
 </script>
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
   <header id="allheader" class="site-header" role="banner">
@@ -160,271 +163,145 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>There are 10 posts in total till now.</span></blockquote>
-
-
-
-
-	<!-- 分页显示 -->
-	
-	
-		
-		
-		  
-		  
-		  <section class="archives-wrap">
-		    <div class="archive-year-wrap">
-		      <h1><a href="/archives/2019" class="archive-year">2019</a></h1>
-		    </div>
-		    <div class="archives">
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/uncategorized/c++/" class="archive-article-date">
-		  <time datetime="2019-11-27T07:28:55.001Z" itemprop="datePublished">Nov 27, 2019</time>
-	  </a>
-      
+          <section id="main" style="float:none;"><article id="post-strcpy_sstrcpy&amp;" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/uncategorized/c++/">c++</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      strcpy_sstrcpy&amp;
     </h1>
   
 
-    </header>
-  </div>
-</article>
-	
-	
-		</div></section>
-	
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/uncategorized/strcpy_sstrcpy&/" class="article-date">
+	  <time datetime="2019-12-04T02:35:34.467Z" itemprop="datePublished">December 4, 2019</time>
+	</a>
 
-	<!-- 页数指示器 -->
-	
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
 
-
-
-</section>
-          <aside id="sidebar">
-  
-    <div class="widget-wrap" style="margin: 20px 0;">
-	<div id="search-form-wrap">
-
-    <form class="search-form">
-        <label style="width: 75%;">
-            <span class="screen-reader-text">Search for:</span>
-            <input type="search" class="search-field" style="height: 42px;" placeholder=" Search…" value="" name="s" title="Search for:">
-        </label>
-        <input type="submit" class="search-form-submit" value="Search">
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
     </div>
-</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在编写C++程序时，不可避免会遇到strcpy()函数和其安全版本strcpy_s()函数，其实之所以会推出_s版本的<br>函数，就是为了使编程更加安全，然而为了保证安全，也就会更容易使我们编写的代码“被报错”。所以<br>这里来简略说一下strcpy()函数和strcpy_s()函数的使用及注意事项。</p>
+<p>这道理是为什么呢？</p>
+<p>单单是避免上图中的错误代码4996的情况，可以使用编辑器的选择性提供warning功能，在include语句前面加上下句：</p>
+<pre><code>#pragma warning( disable : 4996)</code></pre><p>PS：这里有一个小问题，就是strcpy函数  vs里面强加了一个strcpy_s(),必须在程序的开头加上一句</p>
+<pre><code>#define _CRT_SECURE_NO_WARNINGS</code></pre><p>加完之后，再次运行相同的程序，就可以正常运行了。</p>
+<p>那么解决了不使用安全版本的问题，接下来就来说一下使用安全版本的情况。</p>
+<p>看下面的代码：</p>
+<pre><code>int main()
+{
+
+    char* str;
+    str = new char[4];
+    strcpy_s(str, &quot;C++&quot;);
+
+
+    return 0;
+}</code></pre><p>语法来说没有什么问题，但是因为str的储存空间是使用new临时分配的，所以并不<br>能保证缓冲区大小，点击运行就会出现上述的两种错误了。</p>
+<p>这种情况的解决方法其实很简单，那就是不符合2个参数的版本就使用3个参数的版本<br>呗。在两个str之间，加上一个参数，标识长度。</p>
+<pre><code>int main()
+{
+
+    char* str;
+    str = new char[4];
+    strcpy_s(str,4, &quot;C++&quot;);
+
+
+    return 0;
+}</code></pre><p>文章参考：<a href="https://blog.csdn.net/leowinbow/article/details/82380252" target="_blank" rel="noopener" title="文章参考">https://blog.csdn.net/leowinbow/article/details/82380252</a></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
 <script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
 </script>
-<script src="/js/insight.js"></script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
 
-</div>
-</div>
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Connect With Us</h3>
-    <div class="widget widget_athemes_social_icons">
+		       if (typeof LivereTower === 'function') { return; }
 
-    	<ul class="clearfix widget-social-icons">   
-    	
-          
-     			  <li><a href="https://github.com/iTimeTraveler" target="_blank" rel="noopener" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="http://www.yoursite.com" target="_blank" rel="noopener" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-     			  <li><a href="" title="Flickr"><i class="fa fa-flickr" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-            <li><a href="mailto:?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
-          
-   		
-   		</ul>
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
 
 
-   		<!--
-   		<ul class="clearfix widget-social-icons">   		
-   		<li class="widget-si-twitter"><a href="http://twitter.com" target="_blank" rel="noopener" title="Twitter"><i class="ico-twitter"></i></a></li> 
-		<li class="widget-si-facebook"><a href="http://facebook.com" target="_blank" rel="noopener" title="Facebook"><i class="ico-facebook"></i></a></li>
-			<li class="widget-si-gplus"><a href="http://plus.google.com" target="_blank" rel="noopener" title="Google+"><i class="ico-gplus"></i></a></li>
-			<li class="widget-si-pinterest"><a href="http://pinterest.com" target="_blank" rel="noopener" title="Pinterest"><i class="ico-pinterest"></i></a></li>
-			<li class="widget-si-flickr"><a href="http://flickr.com" target="_blank" rel="noopener" title="Flickr"><i class="ico-flickr"></i></a></li>
-			<li class="widget-si-instagram"><a href="http://instagram.com" target="_blank" rel="noopener" title="Instagram"><i class="ico-instagram"></i></a></li>
-		</ul> -->
-
-    </div>
+      
+    </footer>
   </div>
-
-
   
     
-  <div class="widget_athemes_tabs">
-    <ul id="widget-tab" class="clearfix widget-tab-nav">
-      <li class="active"><a>Recent Posts</a></li>
-    </ul>
-    <div class="widget">
-      <ul>
+<nav id="article-nav">
+  
+    <a href="/uncategorized/vue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/uncategorized/%E9%9A%8F%E6%9C%BA%E6%95%B0/">随机数</a></h6>
-              <span>December 4, 2019</span>
-            </div>
-
-          </li>
+          vue
         
-          <li class="clearfix">
+      </div>
+    </a>
+  
+  
+    <a href="/uncategorized/c++%E5%AF%B9%E8%B1%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">c++对象</div>
+    </a>
+  
+</nav>
 
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
+  
+</article>
 
-              <h6 style="margin: 0;"><a href="/uncategorized/%E8%AF%B4%E6%98%8E%E4%B9%A6/">说明书</a></h6>
-              <span>December 4, 2019</span>
-            </div>
+<!-- Table of Contents -->
 
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/uncategorized/%E5%AE%9E%E4%B9%A0%E6%8A%A5%E5%91%8A/">实习报告</a></h6>
-              <span>December 4, 2019</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/uncategorized/%E5%81%9A%E7%B3%BB%E7%BB%9F%E6%97%B6%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%9B%98/">做系统时格式化盘</a></h6>
-              <span>December 4, 2019</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/uncategorized/vue/">vue</a></h6>
-              <span>December 4, 2019</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/uncategorized/strcpy_sstrcpy&/">strcpy_sstrcpy&amp;</a></h6>
-              <span>December 4, 2019</span>
-            </div>
-
-          </li>
-        
-      </ul>
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav">None</ol>
+    
     </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%82%B9%E6%BB%B4%E7%94%9F%E6%B4%BB/">点滴生活</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-</aside>
+  </aside>
+</section>
         
       </div>
       <footer id="footer" class="site-footer">

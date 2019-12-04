@@ -13,20 +13,20 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>Hexo</title>
+  <title>Huwj.work</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Huwj.work">
 <meta property="og:url" content="http:&#x2F;&#x2F;huwj.work&#x2F;index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Huwj.work">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Huwj.work" type="application/atom+xml">
   
   <link rel="icon" href="/css/images/favicon.ico">
   
@@ -93,7 +93,7 @@ var themeMenus = {};
 
           <h1 class="site-title">
             
-              <a href="/" title="Hexo" rel="home"> Hexo </a>
+              <a href="/" title="Huwj.work" rel="home"> Huwj.work </a>
             
           </h1>
 
@@ -161,6 +161,584 @@ var themeMenus = {};
       <div id="content" class="outer">
         
           <section id="main">
+  
+    <article id="post-随机数"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/uncategorized/%E9%9A%8F%E6%9C%BA%E6%95%B0/">随机数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/uncategorized/%E9%9A%8F%E6%9C%BA%E6%95%B0/" class="article-date">
+	  <time datetime="2019-12-04T02:35:34.519Z" itemprop="datePublished">December 4, 2019</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h2><p> 随机数一直以来都比较麻烦，一般都直接百度使用，这里记录一下，以后就不用百来百去了。</p>
+<pre><code>for (i = 0; i &lt; 3; i++)
+{
+    // 生成实际的随机数
+    j = rand();
+    cout &lt;&lt; &quot;随机数： &quot; &lt;&lt; j &lt;&lt; endl;
+}</code></pre><p> 该函数返回的数字其实是伪随机数。这意味着它们具有随机数的表现和属性，但实际上并不是随机的，它们实际上是用算法生成的。</p>
+<pre><code>cout：41 18467 6334 </code></pre><p>  每次都是这三个数；<strong>（因为内部算法的原因 每次都是这三个数）</strong></p>
+<p>要在每次运行程序时获得不同的随机数字流，则必须为随机数生成器提供一个种子以开始。在 C++ 中，这是通过调用 srand 函数完成的。<br> 在 rand 被调用之前，srand 函数要先被调用，并且 srand 在整个程序中仅被调用一次。</p>
+<pre><code>cout &lt;&lt; &quot;Enter a seed value: &quot;;
+cin &gt;&gt; seed;
+// Set the random generator seed before calling rand()
+
+for (i = 0; i &lt; 3; i++)
+{
+    // 生成实际的随机数
+    j = rand(seed);
+    cout &lt;&lt; &quot;随机数： &quot; &lt;&lt; j &lt;&lt; endl;
+}</code></pre><p>这样每次执行的随机数就不一样了（根数输入的seed决定的）<br>实际上，获取种子值的另一个常见做法是调用 time 函数，它是 C++ 标准库的一部分。</p>
+<pre><code>   srand( (unsigned)time( NULL ) );
+
+   /* 生成 10 个随机数 */
+   for( i = 0; i &lt; 10; i++ )
+   {
+      // 生成实际的随机数
+      j= rand();
+      cout &lt;&lt;&quot;随机数： &quot; &lt;&lt; j &lt;&lt; endl;
+   }
+
+   return 0;
+}</code></pre><p><strong>限制随机数的范围</strong></p>
+<p>有时程序需要一个特定范围内的随机数。要将随机数的范围限制在 1 和某个最大值 max 之间的整数，可以使用以下公式：</p>
+<pre><code>number = rand() % max + 1;</code></pre><p>例如，要生成 1〜6 的随机数来代表骰子的点数，则可以使用以下语句：</p>
+<pre><code>dice = rand() % 6 + 1;</code></pre><p>这里简单介绍一下其工作原理。求余数运算符（％）可以获得整除之后的余数。当使用通过 rand 函数返回的正整数除以6时，余数将是 0〜5 的数字。因为目标是 1〜6 的数字，所以只需要给余数加 1 即可。</p>
+<p>这个想法可以扩展到任意范围内的随机数，其通用公式如下：</p>
+<pre><code>number = (rand()%(maxValue - minValue +1)) + minValue;</code></pre><p>在上述公式中，minValue 是范围内的最小值，而 maxValue 则是范围内的最大值。例如，要获得** 10〜18** 的随机数，可以使用以下代码给变量 </p>
+<pre><code>number 赋值：
+const int MIN_VALUE = 10;
+const int MAX_VALUE = 18;
+number = rand() % (MAX_VALUE - MIN_VALUE + 1) + MIN_VALUE;</code></pre><p>在上述代码中，（MAX_VALUE - MIN_VALUE + 1）的值为 9，这是目标范围内整数的个数。余数运算符（％）返回的值是 0〜8 的数字，再用它加上 MIN_VALUE（也就是 10），即可获得 10〜18 的随机数</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
+    <article id="post-说明书"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/uncategorized/%E8%AF%B4%E6%98%8E%E4%B9%A6/">说明书</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/uncategorized/%E8%AF%B4%E6%98%8E%E4%B9%A6/" class="article-date">
+	  <time datetime="2019-12-04T02:35:34.507Z" itemprop="datePublished">December 4, 2019</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>针对市场上航海模拟器现状，本发明要解决的技术问题是提出一种利用触控屏代替传统物理按键式操作面板的系统，<br>  触控操作便捷高效，将成为船舶驾驶台操控的趋势，为适应实船操控的发展，提高船员培训效率，节约培训成本，<br>减少硬件人机交互系统损耗的目的，在航海模拟器中很有必要开发触控式人机交互系统。通过采用触控屏</p>
+<p>为了实现上述目的，本发明的技术方案如下：</p>
+<p>触控航海模拟器系统包括 视景显示 雷达显示 电子海图 以及操作面板，其中操作面板包括了船舶操作的功能以及车中舵的信息。</p>
+<p>所述的操作面板与</p>
+<p>操作仪的硬件微处理器选择Arduino单片机，（车种和舵的模拟量通过电阻器的阻值，产生模拟量，还有单片机模数转化，通过校准，然后将数字数据通过串口的方式发送至电脑主机，采用charom serial进行读取）</p>
+<p>界面上方为风向，风速 RUD RPM SPD TOT六个仪表盘，插一张图  左侧罗经表盘、下方七个按钮以及右下角六个小按钮为固定显示区域，其余部分会根据选择的面板的不同显示不同的操作界面。下面仅对固定显示区域的内容做详细说明。</p>
+<p>六个表盘从左至右依次为：风向表、风速表、舵角显示表、主机转速显示表、船速表、ROT表，表盘显示的详细信息如下：<br>风向表：指示船舶当前位置真风向，单位“°”；风速表：指示船舶当前位置真风速，单位“bf”；舵角显示表：指示船舶当前使用的舵角；主机转速显示表：指示船舶当前的主机转速；船速表：指示船舶当前的速度，单位“Knots”；<br>ROT表：指示船舶当前的转向速率，单位“°/min”。显示船舶当前航向，在船舶转向过程中，实时更新航向。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
+    <article id="post-实习报告"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/uncategorized/%E5%AE%9E%E4%B9%A0%E6%8A%A5%E5%91%8A/">实习报告</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/uncategorized/%E5%AE%9E%E4%B9%A0%E6%8A%A5%E5%91%8A/" class="article-date">
+	  <time datetime="2019-12-04T02:35:34.505Z" itemprop="datePublished">December 4, 2019</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>实习报告</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
+    <article id="post-做系统时格式化盘"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/uncategorized/%E5%81%9A%E7%B3%BB%E7%BB%9F%E6%97%B6%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%9B%98/">做系统时格式化盘</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/uncategorized/%E5%81%9A%E7%B3%BB%E7%BB%9F%E6%97%B6%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%9B%98/" class="article-date">
+	  <time datetime="2019-12-04T02:35:34.503Z" itemprop="datePublished">December 4, 2019</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Windows-cannot-be-installed-to-this-disk-The-selected-disk-has-an-MBR-partition-table"><a href="#Windows-cannot-be-installed-to-this-disk-The-selected-disk-has-an-MBR-partition-table" class="headerlink" title="Windows cannot be installed to this disk The selected disk has an MBR partition table##"></a>Windows cannot be installed to this disk The selected disk has an MBR partition table##</h2><p>界面，按shift + f10，</p>
+<p>1.进入dos界面。</p>
+<p>2.输入 diskpart。</p>
+<p>3.输入list disk。</p>
+<p>4.输入select disk 。</p>
+<p>5.输入clean 就是清除硬盘。</p>
+<p>6.转换格式，convert mbr重装系统遇到 Windows cannot be installed to this dis。</p>
+<p>实习报告：</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
+    <article id="post-vue"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/uncategorized/vue/">vue</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/uncategorized/vue/" class="article-date">
+	  <time datetime="2019-12-04T02:35:34.478Z" itemprop="datePublished">December 4, 2019</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#vue.js</p>
+<p>##1基本语法<br>  使用<strong>v-html</strong>指令直接输出html语法<br>  使用<strong>v-bind</strong> 属性中的值 例如class href属性<br>  <strong>v-if</strong>标签内部判断真假<br>  <strong>v-model</strong> 指令用来在 input、select、textarea、checkbox、radio 等表单控件元素上创建双向数据绑定，根据表单上的值，自动更新绑定的元素的值。<br>  <strong>v-on:click=”reverseMessage”</strong> v-on 监听事件，并对用户的输入进行响应。(@click=”function”)<br>  <strong>v-show</strong>跟v-if很像 v-if=”ok” 在data中对”ok”的true 或者false</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
+    <article id="post-strcpy_sstrcpy&amp;"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/uncategorized/strcpy_sstrcpy&/">strcpy_sstrcpy&amp;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/uncategorized/strcpy_sstrcpy&/" class="article-date">
+	  <time datetime="2019-12-04T02:35:34.467Z" itemprop="datePublished">December 4, 2019</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在编写C++程序时，不可避免会遇到strcpy()函数和其安全版本strcpy_s()函数，其实之所以会推出_s版本的<br>函数，就是为了使编程更加安全，然而为了保证安全，也就会更容易使我们编写的代码“被报错”。所以<br>这里来简略说一下strcpy()函数和strcpy_s()函数的使用及注意事项。</p>
+<p>这道理是为什么呢？</p>
+<p>单单是避免上图中的错误代码4996的情况，可以使用编辑器的选择性提供warning功能，在include语句前面加上下句：</p>
+<pre><code>#pragma warning( disable : 4996)</code></pre><p>PS：这里有一个小问题，就是strcpy函数  vs里面强加了一个strcpy_s(),必须在程序的开头加上一句</p>
+<pre><code>#define _CRT_SECURE_NO_WARNINGS</code></pre><p>加完之后，再次运行相同的程序，就可以正常运行了。</p>
+<p>那么解决了不使用安全版本的问题，接下来就来说一下使用安全版本的情况。</p>
+<p>看下面的代码：</p>
+<pre><code>int main()
+{
+
+    char* str;
+    str = new char[4];
+    strcpy_s(str, &quot;C++&quot;);
+
+
+    return 0;
+}</code></pre><p>语法来说没有什么问题，但是因为str的储存空间是使用new临时分配的，所以并不<br>能保证缓冲区大小，点击运行就会出现上述的两种错误了。</p>
+<p>这种情况的解决方法其实很简单，那就是不符合2个参数的版本就使用3个参数的版本<br>呗。在两个str之间，加上一个参数，标识长度。</p>
+<pre><code>int main()
+{
+
+    char* str;
+    str = new char[4];
+    strcpy_s(str,4, &quot;C++&quot;);
+
+
+    return 0;
+}</code></pre><p>文章参考：<a href="https://blog.csdn.net/leowinbow/article/details/82380252" target="_blank" rel="noopener" title="文章参考">https://blog.csdn.net/leowinbow/article/details/82380252</a></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
+    <article id="post-c++对象"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/uncategorized/c++%E5%AF%B9%E8%B1%A1/">c++对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/uncategorized/c++%E5%AF%B9%E8%B1%A1/" class="article-date">
+	  <time datetime="2019-12-04T02:35:34.465Z" itemprop="datePublished">December 4, 2019</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="C-类定义"><a href="#C-类定义" class="headerlink" title="C++ 类定义"></a>C++ 类定义</h2><p>定义一个类，本质上是定义一个数据类型的蓝图。这实际上并没有定义任何数据，<br>但它定义了类的名称意味着什么，也就是说，它定义了类的对象包括了什么，以及可以在这个对象上执行哪些操作。</p>
+<pre><code>class Line
+{
+   public:
+  void setLength( double len );
+  double getLength( void );
+  Line();  // 这是构造函数
+
+   private:
+  double length;
+};</code></pre><p>构造函数</p>
+<pre><code>Line::Line(void)
+{
+    cout &lt;&lt; &quot;Object is being created&quot; &lt;&lt; endl;
+}</code></pre><p>带参数的构造函数</p>
+<pre><code>Line::Line( double len)
+{
+    cout &lt;&lt; &quot;Object is being created, length = &quot; &lt;&lt; len &lt;&lt; endl;
+    length = len;
+}</code></pre><p>使用初始化列表来初始化字段</p>
+<pre><code>Line::Line( double len): length(len)
+{
+    cout &lt;&lt; &quot;Object is being created, length = &quot; &lt;&lt; len &lt;&lt; endl;
+}</code></pre><p>上面的语法等价于</p>
+<pre><code>Line::Line( double len)
+{
+    length = len;
+    cout &lt;&lt; &quot;Object is being created, length = &quot; &lt;&lt; len &lt;&lt; endl;
+}</code></pre><p>假设有一个类 C，具有多个字段 X、Y、Z 等需要进行初始化，同理地，您可以使用上面的语法，只需要在不同的字段使用逗号进行分隔，如下所示：</p>
+<pre><code>C::C( double a, double b, double c): X(a), Y(b), Z(c)
+{
+  ....
+}</code></pre><p>类的析构函数</p>
+<p>类的析构函数是类的一种特殊的成员函数， <strong>它会在每次删除所创建的对象时执行</strong>，也就是对象快消失的时候会触发这个函数，跟构造函数在对象生成时自动触发是一个道理的。</p>
+<h2 id="C-拷贝构造函数"><a href="#C-拷贝构造函数" class="headerlink" title="C++ 拷贝构造函数"></a>C++ 拷贝构造函数</h2><p>拷贝构造函数是一种特殊的构造函数，在创建对象时，是使用<strong>同一类中之前创建的对象来初始化新创建的对象</strong>。<br>通常用于：<strong>也就是说一般在复制对象的时候，还有传参的时候（将实参复制给形参）。</strong></p>
+<p>通过使用另一个同类型的对象来初始化新创建的对象。</p>
+<p>复制对象把它作为参数传递给函数。</p>
+<p>复制对象，并从函数返回这个对象。</p>
+<p>如果在类中没有定义拷贝构造函数，编译器会自行定义一个。如果类带有指针变量，并有动态内存分配，则它必须有一个拷贝构造函数。拷贝构造函数的最常见形式如下：</p>
+<pre><code>classname (const classname &amp;obj) {
+   // 构造函数的主体
+}</code></pre>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
+    <article id="post-c++基础"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/uncategorized/c++%E5%9F%BA%E7%A1%80/">c++基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/uncategorized/c++%E5%9F%BA%E7%A1%80/" class="article-date">
+	  <time datetime="2019-12-04T02:35:34.463Z" itemprop="datePublished">December 4, 2019</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="extern-存储"><a href="#extern-存储" class="headerlink" title="extern 存储"></a>extern 存储</h2><p>extern 存储用于提供一个全局变量的引用，全局变量对所有的程序文件都是可见的。当您使用 ‘extern’ 时，对于没有初始化的变量，会把变量名指向一个之前定义过的存储位置<br>extern 是用来在另一个文件中声明一个全局变量或函数。<strong>（就是将其他文件的变量引用过来）</strong></p>
+<h2 id="mutable-存储"><a href="#mutable-存储" class="headerlink" title="mutable 存储"></a>mutable 存储</h2><h2 id="thread-local-存储"><a href="#thread-local-存储" class="headerlink" title="thread_local 存储"></a>thread_local 存储</h2><h2 id="操作运算符："><a href="#操作运算符：" class="headerlink" title="操作运算符："></a>操作运算符：</h2><p><a href="https://www.runoob.com/cplusplus/cpp-operators.html" target="_blank" rel="noopener" title="菜鸟教程">https://www.runoob.com/cplusplus/cpp-operators.html</a></p>
+<h2 id="杂项运算符"><a href="#杂项运算符" class="headerlink" title="杂项运算符"></a>杂项运算符</h2><p>sizeof 运算符返回变量的大小。例如，sizeof(a) 将返回 4，其中 a 是整数。<br>Condition ? X : Y    条件运算符。如果 Condition 为真 ? 则值为 X : 否则值为 Y。<br>.（点）和 -&gt;（箭头）    成员运算符用于引用类、结构和共用体的成员。</p>
+<h2 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h2><p><strong>值传递</strong></p>
+<p><strong>指针传递：</strong>把参数的地址复制给形式参数。在函数内，该地址用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。</p>
+<p><strong>引用传递：</strong>该方法把参数的引用复制给形式参数。在函数内，该引用用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。</p>
+<h2 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h2><p>number 赋值：<br>    srand( (unsigned)time( NULL ) );<br>    const int MIN_VALUE = 10;<br>    const int MAX_VALUE = 18;<br>    number = rand() % (MAX_VALUE - MIN_VALUE + 1) + MIN_VALUE;</p>
+<h2 id="字符数组取地址"><a href="#字符数组取地址" class="headerlink" title="字符数组取地址"></a>字符数组取地址</h2><p>这是一个有趣的事情，针对一个而新手c++同学，在面对入下面程序时，肯定特别蒙（至少我是懵逼的）</p>
+<pre><code>int main()
+{
+char greeting[6] = { &apos;H&apos;, &apos;e&apos;, &apos;l&apos;, &apos;l&apos;, &apos;o&apos;, &apos;\0&apos; };
+char *ptr[4];
+
+for (int i = 0; i &lt; MAX; i++)
+{
+    ptr[i] = &amp;greeting[i]; // 赋值为整数的地址
+}
+for (int i = 0; i &lt; MAX; i++)
+{
+    cout &lt;&lt; &quot;Value of var[&quot; &lt;&lt; i &lt;&lt; &quot;] = &quot;;
+    cout &lt;&lt; ptr[i] &lt;&lt; endl;
+}
+return 0;
+}
+
+程序输出
+Value of var[0] = Hello
+Value of var[1] = ello
+Value of var[2] = llo
+Value of var[3] = lo</code></pre><p>讲道理应该输出数组的地址啊</p>
+<pre><code>Value of var[0] = 0118F994
+Value of var[1] = 0118F995
+Value of var[2] = 0118F996
+Value of var[3] = 0118F997</code></pre><p>其实是cout在作怪，这里面cout默认把”cout &lt;&lt; 字符型指针”这种输出格式安排给输出字符串了，就是说它被编译器解释为从指针开始一个接一个地输出内存单元里的字符，直到遇到’\0’时为止。要想输出地址你强制成别的类型就可以了：</p>
+<pre><code>如cout &lt;&lt; (void *)pts[i] &lt;&lt; endl;就可以</code></pre><h2 id="Struct"><a href="#Struct" class="headerlink" title="Struct"></a>Struct</h2><p>数组允许定义可存储相同类型数据项的变量，但是<strong>结构</strong>是一种用户自定义的可用的数据类型，<strong>它允许您存储不同类型的数据项</strong>。</p>
+<pre><code>struct Books
+{
+   char  title[50];
+   char  author[50];
+   char  subject[100];
+   int   book_id;
+} Book1;
+//或者
+Book Book1，Book2；</code></pre><p><strong>访问结构成员</strong><br>为了访问结构的成员，我们使用成员访问运算符（.）。</p>
+<h2 id="指向结构的指针"><a href="#指向结构的指针" class="headerlink" title="指向结构的指针"></a>指向结构的指针</h2><p>定义指向结构的指针，方式与定义指向其他类型变量的指针相似，如下所示：</p>
+<pre><code>struct Books *struct_pointer;
+struct_pointer = &amp;Book1;
+//为了使用指向该结构的指针访问结构的成员，必须使用 -&gt; 运算符
+struct_pointer-&gt;title;</code></pre><h2 id="typedef-关键字"><a href="#typedef-关键字" class="headerlink" title="typedef 关键字"></a>typedef 关键字</h2><pre><code>typedef struct Books
+{
+   char  title[50];
+   char  author[50];
+   char  subject[100];
+   int   book_id;
+}Books;</code></pre><h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>成员函数可以定义在类定义内部，或者单独使用范围解析运算符 :: 来定义。</p>
+<pre><code>class Box
+{
+   public:
+      double length;      // 长度
+      double breadth;     // 宽度
+      double height;      // 高度
+
+      double getVolume(void)
+      {
+         return length * breadth * height;
+      }
+};</code></pre><p>也可以在类的外部使用范围解析运算符 :: 定义该函数，如下所示：</p>
+<pre><code>    double Box::getVolume(void)
+{
+    return length * breadth * height;
+}</code></pre><h2 id="C-类访问修饰符"><a href="#C-类访问修饰符" class="headerlink" title="C++ 类访问修饰符"></a>C++ 类访问修饰符</h2><p>简单的来说就是：<br>public 随便访问<br>private 不能随便访问  get set函数 不可以被派生类访问<br>protected  不能随便访问 get set 派生类可以访问</p>
+<p>有public, protected, private三种继承方式，它们相应地改变了基类成员的访问属性。</p>
+<p>1.public 继承：基类 public 成员，protected 成员，private 成员的访问属性在派生类中分别变成：public, protected, private</p>
+<p>2.protected 继承：基类 public 成员，protected 成员，private 成员的访问属性在派生类中分别变成：protected, protected, private</p>
+<p>3.private 继承：基类 public 成员，protected 成员，private 成员的访问属性在派生类中分别变成：private, private, private</p>
+<p>但无论哪种继承方式，上面两点都没有改变：</p>
+<p>1.private 成员只能被本类成员（类内）和友元访问，不能被派生类访问；</p>
+<p>2.protected 成员可以被派生类访问。</p>
+<h2 id="C-类构造函数-amp-析构-函数"><a href="#C-类构造函数-amp-析构-函数" class="headerlink" title="C++ 类构造函数 &amp; 析构 ##函数"></a>C++ 类构造函数 &amp; 析构 ##函数</h2><p>类的构造函数是类的一种特殊的成员函数，它会在每次创建类的新对象时执行。</p>
+<pre><code>    // 有参数
+Line::Line( double len)
+{
+    cout &lt;&lt; &quot;Object is being created, length = &quot; &lt;&lt; len &lt;&lt; endl;
+    length = len;
+}
+//无参数
+Line::Line(void)
+{
+    cout &lt;&lt; &quot;Object is being created&quot; &lt;&lt; endl;
+}</code></pre><h3 id="使用初始化列表来初始化字段"><a href="#使用初始化列表来初始化字段" class="headerlink" title="使用初始化列表来初始化字段"></a>使用初始化列表来初始化字段</h3><pre><code>Line::Line( double len): length(len)
+{
+    cout &lt;&lt; &quot;Object is being created, length = &quot; &lt;&lt; len &lt;&lt; endl;
+}
+
+//等效于
+Line::Line( double len)
+{
+    length = len;
+    cout &lt;&lt; &quot;Object is being created, length = &quot; &lt;&lt; len &lt;&lt; endl;
+}
+/*假设有一个类 C，具有多个字段 X、Y、Z 等需要进行初始化，同理地，您可以使用上面的语法，
+只需要在不同的字段使用逗号进行分隔，如下所示：*/
+
+C::C( double a, double b, double c): X(a), Y(b), Z(c)
+{
+  ....
+}</code></pre><h2 id="类的析构函数"><a href="#类的析构函数" class="headerlink" title="类的析构函数"></a>类的析构函数</h2><p>类的析构函数是类的一种特殊的成员函数，它会在每次删除所创建的对象时执行。<br>析构函数的名称与<strong>类的名称是完全相同的，只是在前面加了个波浪号（~）作为前缀</strong>，它不会返回任何值，也不能带有任何参数。<br>析构函数有助于在 <strong><code>跳出程序（比如关闭文件、释放内存等）前释放资源</code></strong>  。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
   
     <article id="post-c++"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
@@ -316,6 +894,103 @@ C::C( double a, double b, double c): X(a), Y(b), Z(c)
     
 
   
+    <article id="post-work"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/%E7%82%B9%E6%BB%B4%E7%94%9F%E6%B4%BB/work/">职场</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/%E7%82%B9%E6%BB%B4%E7%94%9F%E6%B4%BB/work/" class="article-date">
+	  <time datetime="2018-10-10T13:24:27.000Z" itemprop="datePublished">October 10, 2018</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、有”同理心”"><a href="#一、有”同理心”" class="headerlink" title="一、有”同理心”"></a>一、有”同理心”</h2><h3 id="1-1、什么叫”同理心”"><a href="#1-1、什么叫”同理心”" class="headerlink" title="1.1、什么叫”同理心”?"></a>1.1、什么叫”同理心”?</h3><p>　　说复杂点儿，同理心就是站在当事人的角度和位置上，客观地理解当事人的内心感受，且把这种理解传达给当事人的一种沟通交流方式。</p>
+<p>　　说简单点儿，同理心就是“己所不欲，勿施于人”。将心比心，也就是设身处地去感受、去体谅他人。</p>
+<p>　　说白了，同理心就是“情商”。</p>
+<p>　　具体点说：</p>
+<p>　　同理心就是，领导交办一项工作，你要读懂他的目的、看清他的用意。我经常遇到这样的情况：给团队成员安排工作时，一再询问“我说明白了吗”“有 没有问题”，再三确认后，提交上来的东西仍然答非所问。所以我在接受任务时，总会向领导确认：你想要的是什么?你的目的是什么?了解这个以后，就可以站在 他的角度，有效的帮他解决问题。</p>
+<p>　　同理心就是，在激励员工时，点准他们的“兴奋点”，不揭“伤疤”。每个人都有认真工作的理由，家庭富裕的为了证明自己的能力，家境贫寒的为了改 善自己的生活，吊儿郎当的爱面子怕丢工作。了解不同人的不同心理需求，才能调动大家的积极性。若是不问青红皂白，拿着鞭子大喊加油，只能是徒劳无功。</p>
+<p>　　同理心就是，在与他人合作时，了解对方的需求和心理，潜移默化的说服对方，双方为了同一个目标而努力。想用强势压服别人，通常不好使。</p>
+<h2 id="二、听话，出活"><a href="#二、听话，出活" class="headerlink" title="二、听话，出活"></a>二、听话，出活</h2><p>　　“什么叫好员工啊，好员工特简单，就四个字：听话、出活”。这是至理名言。</p>
+<p>　　什么叫“听话”?有句老话叫“干活不由东，累死也无功”，谁是“东”啊?你的直属领导就是“东”，大部分时候，听他的话准没错儿。</p>
+<p>　　有朋友说：我有能力，我比领导水平高，我就不听领导的!咱先不说到底谁水平高——既然他能当你领导，肯定有比你强的地方——咱就说水平和能力这事儿，什么叫“有能力”啊?领导用你，你就有能力。不用你，甭管您有再大的能力，都是白费。</p>
+<p>　　根据我的经验，一般来说，领导都比你水平高，起码在一点上是这样：他比你信息更全面、判断的更准确。因为领导更容易接触到更高层，更了解更高层的意图，他知道的你不知道，你在自己的角度上认为“这么做对”，但领导在更高的层面，并不一定这么看。</p>
+<p>　　还有朋友说我领导就是瞎指挥，明摆着不对，我干嘛要听他的?这是另外一个问题，咱们最后一条会谈到，如果你觉得现在的环境无法进步，就可以考虑离职了。</p>
+<p>　　什么叫“出活”?就是领导给你的工作，你得按时完成并且汇报总结。如果这个工作要持续较长时间，那么你需要阶段性的给领导反馈。我们经常犯一个错误，领导安排的工作，他不问你也不说，黑不提白不提这事儿就算过去了。</p>
+<p>　　过去了?哪儿那么容易啊!领导都记着呢，你等他问你的时候——“诶小陈，上次安排你做的那事儿怎么样了?”——他就已经在心里给你写上了标签：“不靠谱”。</p>
+<p>　　一个“不靠谱”需要用十个“靠谱”来扭转，两个“不靠谱”就很难转变印象，三个“不靠谱”你就没有机会了。</p>
+<h2 id="三、要想人前显贵，必须背地里受罪"><a href="#三、要想人前显贵，必须背地里受罪" class="headerlink" title="三、要想人前显贵，必须背地里受罪"></a>三、要想人前显贵，必须背地里受罪</h2><p>　　在公司里上班，大家的智商都差不多，谁也不比谁强多少，拼的都是努力和用心的程度。你下功夫了，就比别人做得好。哦，本来就不比别人聪明，别人下班你也下班、别人玩儿你也玩儿、别人搞对象你也泡马子，你凭什么比别人干得好?</p>
+<p>　　“要想人前显贵，必须背地里受罪”的道理并不难懂。就是真到受苦的时候就含糊了，有的人会说，我年纪轻轻的为什么不好好享受生活啊?这种想法很 普遍，这本是一个价值观的问题，没什么可说的，一个人想怎么生活都对。但是有一些朋友是在追求理想和享受生活中纠结的，和这些朋友，是可以聊的。</p>
+<p>　　马云曾经说过：我们追求的应是人生的大平衡，而不是一时一日的小平衡(大意如此)。新东方也有一句话说：怕吃苦吃苦一辈子，不怕苦吃苦半辈子。两句话大意相同，值得深思。</p>
+<p>　　一件工作，你用心想了做了，领导一看就知道，你想糊弄，也是一看就知道，这个没侥幸。领导在判断这个问题的时候，标准很简单：我想到的，你都没想到，肯定没用心;我想到的，你想到了一部分，用心不够;我没想到的，你想到了，这是用心了——这就是“超预期”(“出活”还有一层含义，就是“超预期”。)。如果你每次都能给你的老板一个超预期的 结果，那你无疑就是一个好员工。</p>
+<h2 id="四、能忍多大事儿，就能成多大事儿"><a href="#四、能忍多大事儿，就能成多大事儿" class="headerlink" title="四、能忍多大事儿，就能成多大事儿"></a>四、能忍多大事儿，就能成多大事儿</h2><p>　　在工作上想受到领导的赏识和重用，除了要有过硬的工作能力外，更重要的，要有足够的涵养(抗压力或者回血能力)。能受多大委屈，才能成多大事儿，这是一定的。为了考察你的“抗压力”，领导有时会故意试你，你可一定要经得住考验。</p>
+<h2 id="五、总躲着领导，你就危险了"><a href="#五、总躲着领导，你就危险了" class="headerlink" title="五、总躲着领导，你就危险了"></a>五、总躲着领导，你就危险了</h2><p>　　不少人躲着领导，尽量少跟领导说话、绕着领导走。因为跟领导近了事儿就多，不跟领导多接触，事儿少，多清闲。这是“一叶障目，不见泰山”。</p>
+<p>　　如果你想在工作上取得一些成绩，我建议还是应该主动的多和领导沟通。领导在平时开会时说的多是大面儿上的话，真话、有用的话、有价值的话不一定说。这并不是他不想说，而是没机会说。</p>
+<p>　　有心的员工会随时抽时间和领导沟通、增加私人交流的机会：一起吃饭、一起抽烟、一起上下班、甚至一起打球K歌……通过这样的机会，你可以了解领导对于你的看法、对于工作的观点，这些都有益于你调整自己的工作的方式。</p>
+<p>　　有朋友担心这样做会引起领导反感，其实完全不会，领导们多是孤独的，如果他发现有一个员工虚心向他请教、积极分享工作的思考，他是非常高兴的。</p>
+<p>　　有朋友说，我不想那么累，我就想混混日子。即便是这样，你最好也主动和领导沟通、主动汇报。你追着他，你是主动的一方，其实你不累;等到他追你的时候，你就被动了，最终就累死了。</p>
+<p>　　老罗曾经讲过一个故事，说你进入单位，见到老板就低头过去、不理他，他当然也不理你。等到年终考核、或者裁员的时候，老板隐约记得有你这么个人，但不知道你的名字、更不知道你做了什么。老板会想：这是你的错，不是我的错。不开除你开除谁?</p>
+<p>　　老板也是人，大家用人类的方式沟通，一切会变得简单很多。</p>
+<h2 id="六、帮助别人千万别吝啬"><a href="#六、帮助别人千万别吝啬" class="headerlink" title="六、帮助别人千万别吝啬"></a>六、帮助别人千万别吝啬</h2><p>　　马云曾经说，成功就是成就自己帮助别人。这话没错。</p>
+<p>　　如果你在一家公司工作，你发现你的工作不用任何人协助就能自己独立完成，那你多半是个打杂的。相反，你的工作需要越多人协作，就越复杂、越高级。在实际工作中我发现，我处在一个协作关系网中，如果没有别人的帮助，我就无法工作下去。</p>
+<p>　　当你正在忙于某项工作时，有同事来向你“求助”，很多时候我们会很直接、甚至粗暴的拒绝，殊不知这样做正在给你今后的工作种下麻烦的种子。风水 轮流转，在一家公司里，大家的工作互相交叉的几率很大，说不定你会用上谁，这些人脉关系需要平时去维护。今天你帮助了人家，说不定明天对方就会成为你的救 命稻草，这非常可能。</p>
+<p>　　有一天我正在疲于应付一个项目总结，这时有个其他部门的同事来找我聊合作的事儿，我并不认识他，我耐心的和他介绍了情况，并且真的形成了几次愉快的合作，半年后，我的晋升答辩会上，我发现他是我的答辩委员……</p>
+<h2 id="七、目标再目标，量化再量化"><a href="#七、目标再目标，量化再量化" class="headerlink" title="七、目标再目标，量化再量化"></a>七、目标再目标，量化再量化</h2><p>　　没有目标的，都不叫工作;没有量化的，都不叫目标。</p>
+<p>　　在接受一项工作时，先问目标是什么;在布置一项工作时，先交代目标是什么。这个不说清楚，都是扯淡。</p>
+<p>　　不想成为蒙着眼睛拉磨的驴?那么除了清楚的知道自己的目标外，还得知道你的部门、你的公司的目标，最关键的，你需要知道，你的工作在总体目标中处在什么地位、扮演什么角色。如果你发现，你工作的目标和总体目标关系很小、甚至没有关系，那么你就很容易被拿掉。</p>
+<p>　　辞退员工，或给员工绩效打分“不合格”是很令人头疼的，但其实这事儿并不难。关键就在于事先和每个员工一起制定量化的工作目标，并且随时提醒员 工，他的工作是否达到了要求。没有达到量化指标，辞退或“不合格”是令所当然事儿，在数据面前，再矫情的人也无话可说。相反，如果谈感觉、聊希望，这事儿 就没法办了。</p>
+<h2 id="八、找到解决问题的办法是我的义务"><a href="#八、找到解决问题的办法是我的义务" class="headerlink" title="八、找到解决问题的办法是我的义务"></a>八、找到解决问题的办法是我的义务</h2><p>　　领导安排的工作，不能说“我做不了”、“我做不到”。</p>
+<p>　　公司请我们来工作，是为了解决问题的，如果不能解决问题，我们就没有价值。工作推进中遇到困难，无法继续进行，这是很正常的事儿，我们需要做的是主动寻找答案和办法，哪怕你的办法不妥，那么就去问，但无论如何不能对你的领导说，我不会。</p>
+<p>　　前天，我在公司里听见隔壁团队的领导安排同事定一个会议室，有公司工作经验的人都知道，会议室是很难订到的，弄不好还需要“托关系，走后门”。这个小同学可能是没有订到，于是和他的领导说“我没订到”，他的领导直接就急了，说：“那怎么办?需要我来订吗?”</p>
+<p>　　这位领导发火是有道理的，这位小同学在发现自己订不到会议室后，应该做的是自己想办法解决问题——最简单的就是向老同事咨询。</p>
+<p>　　解决问题的能力是员工最关键的能力，没有之一。在工作中遇到困难特别正常，在这时，我们有一项义务，就是找到解决问题的办法。</p>
+<h2 id="九、尽量不说“不是我，我没有”"><a href="#九、尽量不说“不是我，我没有”" class="headerlink" title="九、尽量不说“不是我，我没有”"></a>九、尽量不说“不是我，我没有”</h2><p>　　绝大多数人在面对批评的时候，本能反应都是推卸责任，此时的口头禅就是“不是我”、“没有我”。我总觉得，很多时候，越成熟的人，就越少用本能反应面对问题，因为他们有更强的自控力。</p>
+<p>　　尽量不说“不是我”、“没有我”这样的话，因为这些话毫无作用，领导听惯了这样的推卸之词，丝毫不会为之所动。此时如果能够主动承担责任，反而体现了一种担</p>
+<p>　　当。即便真是被冤枉了，当场辩解往往也不是最明智的选择，可以先保持沉默，私下找机会和领导进行沟通。这个详见第三条。</p>
+<h2 id="十、“言多必失”死得惨"><a href="#十、“言多必失”死得惨" class="headerlink" title="十、“言多必失”死得惨"></a>十、“言多必失”死得惨</h2><p>　　在公司里，少说闲话，不说是非话，不做是非人。</p>
+<p>　　你就相信一点：你说的每句话，你的老板都会知道。好话可能不一定，坏话则是一定的。</p>
+<p>　　还是做个正直的人吧，这样最简单，也受益最大。正直人的原则是：批评当面说，赞美背后讲。</p>
+<h2 id="十一、知道什么时候离开"><a href="#十一、知道什么时候离开" class="headerlink" title="十一、知道什么时候离开"></a>十一、知道什么时候离开</h2><p>　　好多同事和朋友和我聊过离职的话题，我对朋友们的建议是，如果你因为觉得工作不爽，那就别离职，因为甭管到哪里，都会不爽：老板不喜欢、同事不可爱、工作太劳累、关系太复杂……我以我在多家大公司工作的经历担保：几乎所有我工作过的公司，令人不爽的事儿都是一样的。</p>
+<p>　　那么什么时候离开呢?我想，有两种情况：</p>
+<p>　　1、在这家公司，你已经没有上升的空间、无法学习到更多的东西了;</p>
+<p>　　2、在这家公司，你已学到足够的知识，可以在新领域或新平台上一展身手了。</p>
+<p>###本文转载自：<a href="http://news.cnblogs.com/n/213563/" target="_blank" rel="noopener">http://news.cnblogs.com/n/213563/</a></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E7%82%B9%E6%BB%B4%E7%94%9F%E6%B4%BB/">点滴生活</a>
+
+      
+      
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+    
+
+  
 
 
 </section>
@@ -439,8 +1114,68 @@ C::C( double a, double b, double c): X(a), Y(b), Z(c)
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/uncategorized/c++/">c++</a></h6>
-              <span>November 27, 2019</span>
+              <h6 style="margin: 0;"><a href="/uncategorized/%E9%9A%8F%E6%9C%BA%E6%95%B0/">随机数</a></h6>
+              <span>December 4, 2019</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/uncategorized/%E8%AF%B4%E6%98%8E%E4%B9%A6/">说明书</a></h6>
+              <span>December 4, 2019</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/uncategorized/%E5%AE%9E%E4%B9%A0%E6%8A%A5%E5%91%8A/">实习报告</a></h6>
+              <span>December 4, 2019</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/uncategorized/%E5%81%9A%E7%B3%BB%E7%BB%9F%E6%97%B6%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%9B%98/">做系统时格式化盘</a></h6>
+              <span>December 4, 2019</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/uncategorized/vue/">vue</a></h6>
+              <span>December 4, 2019</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/uncategorized/strcpy_sstrcpy&/">strcpy_sstrcpy&amp;</a></h6>
+              <span>December 4, 2019</span>
             </div>
 
           </li>
@@ -451,6 +1186,13 @@ C::C( double a, double b, double c): X(a), Y(b), Z(c)
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%82%B9%E6%BB%B4%E7%94%9F%E6%B4%BB/">点滴生活</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
 
   
     
@@ -463,7 +1205,7 @@ C::C( double a, double b, double c): X(a), Y(b), Z(c)
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -477,7 +1219,7 @@ C::C( double a, double b, double c): X(a), Y(b), Z(c)
 
   <div class="clearfix container">
       <div class="site-info">
-	      &copy; 2019 Hexo All Rights Reserved.
+	      &copy; 2019 Huwj.work All Rights Reserved.
           
             <span id="busuanzi_container_site_uv">
               本站访客数<span id="busuanzi_value_site_uv"></span>人次  
