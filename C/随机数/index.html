@@ -13,20 +13,20 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>strcpy_sstrcpy&amp; | Huwj.work</title>
+  <title>随机数 | Huwj.work</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
-  <meta name="description" content="在编写C++程序时，不可避免会遇到strcpy()函数和其安全版本strcpy_s()函数，其实之所以会推出_s版本的函数，就是为了使编程更加安全，然而为了保证安全，也就会更容易使我们编写的代码“被报错”。所以这里来简略说一下strcpy()函数和strcpy_s()函数的使用及注意事项。 这道理是为什么呢？ 单单是避免上图中的错误代码4996的情况，可以使用编辑器的选择性提供warning功能，">
+  <meta name="description" content="随机数一直以来都比较麻烦，一般都直接百度使用，这里记录一下，以后就不用百来百去了。 for (i = 0; i &amp;lt; 3; i++) {     &#x2F;&#x2F; 生成实际的随机数     j = rand();     cout &amp;lt;&amp;lt; &amp;quot;随机数： &amp;quot; &amp;lt;&amp;lt; j &amp;lt;&amp;lt; endl; } 该函数返回的数字其实是伪随机数。这意味着它们具有随机数的表现和属">
 <meta property="og:type" content="article">
-<meta property="og:title" content="strcpy_sstrcpy&amp;">
-<meta property="og:url" content="http:&#x2F;&#x2F;huwj.work&#x2F;uncategorized&#x2F;strcpy_sstrcpy&amp;&#x2F;index.html">
+<meta property="og:title" content="随机数">
+<meta property="og:url" content="http:&#x2F;&#x2F;huwj.work&#x2F;C&#x2F;%E9%9A%8F%E6%9C%BA%E6%95%B0&#x2F;index.html">
 <meta property="og:site_name" content="Huwj.work">
-<meta property="og:description" content="在编写C++程序时，不可避免会遇到strcpy()函数和其安全版本strcpy_s()函数，其实之所以会推出_s版本的函数，就是为了使编程更加安全，然而为了保证安全，也就会更容易使我们编写的代码“被报错”。所以这里来简略说一下strcpy()函数和strcpy_s()函数的使用及注意事项。 这道理是为什么呢？ 单单是避免上图中的错误代码4996的情况，可以使用编辑器的选择性提供warning功能，">
+<meta property="og:description" content="随机数一直以来都比较麻烦，一般都直接百度使用，这里记录一下，以后就不用百来百去了。 for (i = 0; i &amp;lt; 3; i++) {     &#x2F;&#x2F; 生成实际的随机数     j = rand();     cout &amp;lt;&amp;lt; &amp;quot;随机数： &amp;quot; &amp;lt;&amp;lt; j &amp;lt;&amp;lt; endl; } 该函数返回的数字其实是伪随机数。这意味着它们具有随机数的表现和属">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-22T08:39:56.234Z">
+<meta property="og:updated_time" content="2019-12-04T05:22:40.901Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Huwj.work" type="application/atom+xml">
@@ -163,7 +163,7 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-strcpy_sstrcpy&amp;" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-随机数" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -171,7 +171,7 @@ var themeMenus = {};
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      strcpy_sstrcpy&amp;
+      随机数
     </h1>
   
 
@@ -179,8 +179,8 @@ var themeMenus = {};
     
     <div class="article-meta">
       
-	Posted on <a href="/uncategorized/strcpy_sstrcpy&/" class="article-date">
-	  <time datetime="2019-12-04T02:35:34.467Z" itemprop="datePublished">December 4, 2019</time>
+	Posted on <a href="/C/%E9%9A%8F%E6%9C%BA%E6%95%B0/" class="article-date">
+	  <time datetime="2019-12-04T05:05:36.000Z" itemprop="datePublished">December 4, 2019</time>
 	</a>
 
       
@@ -191,39 +191,56 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在编写C++程序时，不可避免会遇到strcpy()函数和其安全版本strcpy_s()函数，其实之所以会推出_s版本的<br>函数，就是为了使编程更加安全，然而为了保证安全，也就会更容易使我们编写的代码“被报错”。所以<br>这里来简略说一下strcpy()函数和strcpy_s()函数的使用及注意事项。</p>
-<p>这道理是为什么呢？</p>
-<p>单单是避免上图中的错误代码4996的情况，可以使用编辑器的选择性提供warning功能，在include语句前面加上下句：</p>
-<pre><code>#pragma warning( disable : 4996)</code></pre><p>PS：这里有一个小问题，就是strcpy函数  vs里面强加了一个strcpy_s(),必须在程序的开头加上一句</p>
-<pre><code>#define _CRT_SECURE_NO_WARNINGS</code></pre><p>加完之后，再次运行相同的程序，就可以正常运行了。</p>
-<p>那么解决了不使用安全版本的问题，接下来就来说一下使用安全版本的情况。</p>
-<p>看下面的代码：</p>
-<pre><code>int main()
+        <p> 随机数一直以来都比较麻烦，一般都直接百度使用，这里记录一下，以后就不用百来百去了。</p>
+<pre><code>for (i = 0; i &lt; 3; i++)
 {
+    // 生成实际的随机数
+    j = rand();
+    cout &lt;&lt; &quot;随机数： &quot; &lt;&lt; j &lt;&lt; endl;
+}</code></pre><p> 该函数返回的数字其实是伪随机数。这意味着它们具有随机数的表现和属性，但实际上并不是随机的，它们实际上是用算法生成的。</p>
+<pre><code>cout：41 18467 6334 </code></pre><p>  每次都是这三个数；<strong>（因为内部算法的原因 每次都是这三个数）</strong></p>
+<a id="more"></a>
 
-    char* str;
-    str = new char[4];
-    strcpy_s(str, &quot;C++&quot;);
+<p>要在每次运行程序时获得不同的随机数字流，则必须为随机数生成器提供一个种子以开始。在 C++ 中，这是通过调用 srand 函数完成的。<br> 在 rand 被调用之前，srand 函数要先被调用，并且 srand 在整个程序中仅被调用一次。</p>
+<pre><code>cout &lt;&lt; &quot;Enter a seed value: &quot;;
+cin &gt;&gt; seed;
+// Set the random generator seed before calling rand()
 
-
-    return 0;
-}</code></pre><p>语法来说没有什么问题，但是因为str的储存空间是使用new临时分配的，所以并不<br>能保证缓冲区大小，点击运行就会出现上述的两种错误了。</p>
-<p>这种情况的解决方法其实很简单，那就是不符合2个参数的版本就使用3个参数的版本<br>呗。在两个str之间，加上一个参数，标识长度。</p>
-<pre><code>int main()
+for (i = 0; i &lt; 3; i++)
 {
+    // 生成实际的随机数
+    j = rand(seed);
+    cout &lt;&lt; &quot;随机数： &quot; &lt;&lt; j &lt;&lt; endl;
+}</code></pre><p>这样每次执行的随机数就不一样了（根数输入的seed决定的）<br>实际上，获取种子值的另一个常见做法是调用 time 函数，它是 C++ 标准库的一部分。</p>
+<pre><code>   srand( (unsigned)time( NULL ) );
 
-    char* str;
-    str = new char[4];
-    strcpy_s(str,4, &quot;C++&quot;);
+   /* 生成 10 个随机数 */
+   for( i = 0; i &lt; 10; i++ )
+   {
+      // 生成实际的随机数
+      j= rand();
+      cout &lt;&lt;&quot;随机数： &quot; &lt;&lt; j &lt;&lt; endl;
+   }
 
-
-    return 0;
-}</code></pre><p>文章参考：<a href="https://blog.csdn.net/leowinbow/article/details/82380252" target="_blank" rel="noopener" title="文章参考">https://blog.csdn.net/leowinbow/article/details/82380252</a></p>
+   return 0;
+}</code></pre><p><strong>限制随机数的范围</strong></p>
+<p>有时程序需要一个特定范围内的随机数。要将随机数的范围限制在 1 和某个最大值 max 之间的整数，可以使用以下公式：</p>
+<pre><code>number = rand() % max + 1;</code></pre><p>例如，要生成 1〜6 的随机数来代表骰子的点数，则可以使用以下语句：</p>
+<pre><code>dice = rand() % 6 + 1;</code></pre><p>这里简单介绍一下其工作原理。求余数运算符（％）可以获得整除之后的余数。当使用通过 rand 函数返回的正整数除以6时，余数将是 0〜5 的数字。因为目标是 1〜6 的数字，所以只需要给余数加 1 即可。</p>
+<p>这个想法可以扩展到任意范围内的随机数，其通用公式如下：</p>
+<pre><code>number = (rand()%(maxValue - minValue +1)) + minValue;</code></pre><p>在上述公式中，minValue 是范围内的最小值，而 maxValue 则是范围内的最大值。例如，要获得** 10〜18** 的随机数，可以使用以下代码给变量 </p>
+<pre><code>number 赋值：
+const int MIN_VALUE = 10;
+const int MAX_VALUE = 18;
+number = rand() % (MAX_VALUE - MIN_VALUE + 1) + MIN_VALUE;</code></pre><p>在上述代码中，（MAX_VALUE - MIN_VALUE + 1）的值为 9，这是目标范围内整数的个数。余数运算符（％）返回的值是 0〜8 的数字，再用它加上 MIN_VALUE（也就是 10），即可获得 10〜18 的随机数。</p>
 
       
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/C/">C++</a>
+
       
       
         <div id="donation_div"></div>
@@ -271,17 +288,17 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/uncategorized/vue/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Vue/vue%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          vue
+          vue基础
         
       </div>
     </a>
   
   
-    <a href="/uncategorized/c++%E5%AF%B9%E8%B1%A1/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/C/c-%E5%AF%B9%E8%B1%A1/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">c++对象</div>
     </a>

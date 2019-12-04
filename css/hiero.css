@@ -254,16 +254,16 @@ object {
 ----------------------------------------------- */
 .site-header {
 	padding: 20px 0 0;
-	background: #16171b;
+	background-image:url("../img/logo.png");
+	background-size: 100% 100%;
 	}
 .site-branding {
 	float: left;
 	}
 .site-title {
-	margin: 0;
-	font-size: 4.25em;
+	margin: 1%;
+	font-size: 2.25em;
 	font-family: "Yanone Kaffeesatz", "Microsoft YaHei Light", Arial, Helvetica, sans-serif;
-	text-transform: uppercase;
 	line-height: 1;
 	}
 .site-title a {
@@ -330,7 +330,7 @@ object {
 	padding: 20px 0 0;
 	}
 #main-navigation .sf-menu {
-	background: #060608;
+	background:#ffffff29;
 	}
 #main-navigation .sf-menu > ul > li:after {
 	width: 1px;
@@ -386,8 +386,8 @@ object {
 #main-navigation li.current-page-parent > a,
 #main-navigation li.current-page-ancestor > a,
 #main-navigation li.current_page_ancestor > a {
-	color: #fff;
-	background: #ff2828;
+	color: #f00;
+	
 	}
 #main-navigation li:hover li a,
 #main-navigation li.sfHover li a {

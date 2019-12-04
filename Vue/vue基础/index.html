@@ -13,20 +13,20 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>随机数 | Huwj.work</title>
+  <title>vue基础 | Huwj.work</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
-  <meta name="description" content="随机数 随机数一直以来都比较麻烦，一般都直接百度使用，这里记录一下，以后就不用百来百去了。 for (i = 0; i &amp;lt; 3; i++) {     &#x2F;&#x2F; 生成实际的随机数     j = rand();     cout &amp;lt;&amp;lt; &amp;quot;随机数： &amp;quot; &amp;lt;&amp;lt; j &amp;lt;&amp;lt; endl; } 该函数返回的数字其实是伪随机数。这意味着它们具有随机数的表">
+  <meta name="description" content="##1基本语法  使用v-html指令直接输出html语法  使用v-bind 属性中的值 例如class href属性  v-if标签内部判断真假  v-model 指令用来在 input、select、textarea、checkbox、radio 等表单控件元素上创建双向数据绑定，根据表单上的值，自动更新绑定的元素的值。  v-on:click=”reverseMessage” v-on 监">
 <meta property="og:type" content="article">
-<meta property="og:title" content="随机数">
-<meta property="og:url" content="http:&#x2F;&#x2F;huwj.work&#x2F;uncategorized&#x2F;%E9%9A%8F%E6%9C%BA%E6%95%B0&#x2F;index.html">
+<meta property="og:title" content="vue基础">
+<meta property="og:url" content="http:&#x2F;&#x2F;huwj.work&#x2F;Vue&#x2F;vue%E5%9F%BA%E7%A1%80&#x2F;index.html">
 <meta property="og:site_name" content="Huwj.work">
-<meta property="og:description" content="随机数 随机数一直以来都比较麻烦，一般都直接百度使用，这里记录一下，以后就不用百来百去了。 for (i = 0; i &amp;lt; 3; i++) {     &#x2F;&#x2F; 生成实际的随机数     j = rand();     cout &amp;lt;&amp;lt; &amp;quot;随机数： &amp;quot; &amp;lt;&amp;lt; j &amp;lt;&amp;lt; endl; } 该函数返回的数字其实是伪随机数。这意味着它们具有随机数的表">
+<meta property="og:description" content="##1基本语法  使用v-html指令直接输出html语法  使用v-bind 属性中的值 例如class href属性  v-if标签内部判断真假  v-model 指令用来在 input、select、textarea、checkbox、radio 等表单控件元素上创建双向数据绑定，根据表单上的值，自动更新绑定的元素的值。  v-on:click=”reverseMessage” v-on 监">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-22T06:22:21.224Z">
+<meta property="og:updated_time" content="2019-12-04T05:17:38.401Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Huwj.work" type="application/atom+xml">
@@ -163,7 +163,7 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-随机数" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-vue基础" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -171,7 +171,7 @@ var themeMenus = {};
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      随机数
+      vue基础
     </h1>
   
 
@@ -179,8 +179,8 @@ var themeMenus = {};
     
     <div class="article-meta">
       
-	Posted on <a href="/uncategorized/%E9%9A%8F%E6%9C%BA%E6%95%B0/" class="article-date">
-	  <time datetime="2019-12-04T02:35:34.519Z" itemprop="datePublished">December 4, 2019</time>
+	Posted on <a href="/Vue/vue%E5%9F%BA%E7%A1%80/" class="article-date">
+	  <time datetime="2019-12-04T05:05:46.000Z" itemprop="datePublished">December 4, 2019</time>
 	</a>
 
       
@@ -191,51 +191,15 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h2><p> 随机数一直以来都比较麻烦，一般都直接百度使用，这里记录一下，以后就不用百来百去了。</p>
-<pre><code>for (i = 0; i &lt; 3; i++)
-{
-    // 生成实际的随机数
-    j = rand();
-    cout &lt;&lt; &quot;随机数： &quot; &lt;&lt; j &lt;&lt; endl;
-}</code></pre><p> 该函数返回的数字其实是伪随机数。这意味着它们具有随机数的表现和属性，但实际上并不是随机的，它们实际上是用算法生成的。</p>
-<pre><code>cout：41 18467 6334 </code></pre><p>  每次都是这三个数；<strong>（因为内部算法的原因 每次都是这三个数）</strong></p>
-<p>要在每次运行程序时获得不同的随机数字流，则必须为随机数生成器提供一个种子以开始。在 C++ 中，这是通过调用 srand 函数完成的。<br> 在 rand 被调用之前，srand 函数要先被调用，并且 srand 在整个程序中仅被调用一次。</p>
-<pre><code>cout &lt;&lt; &quot;Enter a seed value: &quot;;
-cin &gt;&gt; seed;
-// Set the random generator seed before calling rand()
-
-for (i = 0; i &lt; 3; i++)
-{
-    // 生成实际的随机数
-    j = rand(seed);
-    cout &lt;&lt; &quot;随机数： &quot; &lt;&lt; j &lt;&lt; endl;
-}</code></pre><p>这样每次执行的随机数就不一样了（根数输入的seed决定的）<br>实际上，获取种子值的另一个常见做法是调用 time 函数，它是 C++ 标准库的一部分。</p>
-<pre><code>   srand( (unsigned)time( NULL ) );
-
-   /* 生成 10 个随机数 */
-   for( i = 0; i &lt; 10; i++ )
-   {
-      // 生成实际的随机数
-      j= rand();
-      cout &lt;&lt;&quot;随机数： &quot; &lt;&lt; j &lt;&lt; endl;
-   }
-
-   return 0;
-}</code></pre><p><strong>限制随机数的范围</strong></p>
-<p>有时程序需要一个特定范围内的随机数。要将随机数的范围限制在 1 和某个最大值 max 之间的整数，可以使用以下公式：</p>
-<pre><code>number = rand() % max + 1;</code></pre><p>例如，要生成 1〜6 的随机数来代表骰子的点数，则可以使用以下语句：</p>
-<pre><code>dice = rand() % 6 + 1;</code></pre><p>这里简单介绍一下其工作原理。求余数运算符（％）可以获得整除之后的余数。当使用通过 rand 函数返回的正整数除以6时，余数将是 0〜5 的数字。因为目标是 1〜6 的数字，所以只需要给余数加 1 即可。</p>
-<p>这个想法可以扩展到任意范围内的随机数，其通用公式如下：</p>
-<pre><code>number = (rand()%(maxValue - minValue +1)) + minValue;</code></pre><p>在上述公式中，minValue 是范围内的最小值，而 maxValue 则是范围内的最大值。例如，要获得** 10〜18** 的随机数，可以使用以下代码给变量 </p>
-<pre><code>number 赋值：
-const int MIN_VALUE = 10;
-const int MAX_VALUE = 18;
-number = rand() % (MAX_VALUE - MIN_VALUE + 1) + MIN_VALUE;</code></pre><p>在上述代码中，（MAX_VALUE - MIN_VALUE + 1）的值为 9，这是目标范围内整数的个数。余数运算符（％）返回的值是 0〜8 的数字，再用它加上 MIN_VALUE（也就是 10），即可获得 10〜18 的随机数</p>
-
+        <p>##1基本语法<br>  使用<strong>v-html</strong>指令直接输出html语法<br>  使用<strong>v-bind</strong> 属性中的值 例如class href属性<br>  <strong>v-if</strong>标签内部判断真假<br>  <strong>v-model</strong> 指令用来在 input、select、textarea、checkbox、radio 等表单控件元素上创建双向数据绑定，根据表单上的值，自动更新绑定的元素的值。<br>  <strong>v-on:click=”reverseMessage”</strong> v-on 监听事件，并对用户的输入进行响应。(@click=”function”)<br>  <strong>v-show</strong>跟v-if很像 v-if=”ok” 在data中对”ok”的true 或者false</p>
+<a id="more"></a>
       
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+
       
       
         <div id="donation_div"></div>
@@ -283,10 +247,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
+    <a href="/C/strcpy%E4%B8%8Esstrcpy/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          strcpy与sstrcpy
+        
+      </div>
+    </a>
   
-    <a href="/uncategorized/%E8%AF%B4%E6%98%8E%E4%B9%A6/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/C/%E9%9A%8F%E6%9C%BA%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">说明书</div>
+      <div class="article-nav-title">随机数</div>
     </a>
   
 </nav>
@@ -300,7 +273,7 @@ var a = new Donate({
     <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#随机数"><span class="nav-number">1.</span> <span class="nav-text">随机数</span></a></li></ol>
+      <ol class="nav">None</ol>
     
     </div>
   </aside>
