@@ -13,21 +13,28 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>做系统遇到的问题 | Huwj.work</title>
+  <title>tensorflow安装 | Huwj.work</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
-  <meta name="description" content="Windows cannot be installed to this disk The selected disk has an MBR partition table##界面，按shift + f10， 1.进入dos界面。 2.输入 diskpart。 3.输入list disk。 4.输入select disk 。 5.输入clean 就是清除硬盘。 6.转换格式，convert mbr重">
+  <meta name="description" content="安装tensorflow很麻烦，踩了很多坑，记录一下，因anaconda是比较简单的安装方式了。 安装Anaconda 一定要安装内置python为3.5的Ancaonda，这里推荐Anaconda3-4.2.0-Windows-x86_64下载地址https:&#x2F;&#x2F;repo.continuum.io&#x2F;archive&#x2F;index.html这里提一下，官网是最新的Anaconda，但是整因为时最新的，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="做系统遇到的问题">
-<meta property="og:url" content="http:&#x2F;&#x2F;huwj.work&#x2F;Windows&#x2F;%E5%81%9A%E7%B3%BB%E7%BB%9F%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98&#x2F;index.html">
+<meta property="og:title" content="Tensorflow安装">
+<meta property="og:url" content="http:&#x2F;&#x2F;huwj.work&#x2F;Python&#x2F;tensorflow%E5%AE%89%E8%A3%85&#x2F;index.html">
 <meta property="og:site_name" content="Huwj.work">
-<meta property="og:description" content="Windows cannot be installed to this disk The selected disk has an MBR partition table##界面，按shift + f10， 1.进入dos界面。 2.输入 diskpart。 3.输入list disk。 4.输入select disk 。 5.输入clean 就是清除硬盘。 6.转换格式，convert mbr重">
+<meta property="og:description" content="安装tensorflow很麻烦，踩了很多坑，记录一下，因anaconda是比较简单的安装方式了。 安装Anaconda 一定要安装内置python为3.5的Ancaonda，这里推荐Anaconda3-4.2.0-Windows-x86_64下载地址https:&#x2F;&#x2F;repo.continuum.io&#x2F;archive&#x2F;index.html这里提一下，官网是最新的Anaconda，但是整因为时最新的，">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-04T05:13:50.897Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;huwj.work&#x2F;images&#x2F;python&#x2F;tensorflow&#x2F;0.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;huwj.work&#x2F;images&#x2F;python&#x2F;tensorflow&#x2F;1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;huwj.work&#x2F;images&#x2F;python&#x2F;tensorflow&#x2F;2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;huwj.work&#x2F;images&#x2F;python&#x2F;tensorflow&#x2F;3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;huwj.work&#x2F;images&#x2F;python&#x2F;tensorflow&#x2F;4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;huwj.work&#x2F;images&#x2F;python&#x2F;tensorflow&#x2F;5.png">
+<meta property="og:updated_time" content="2019-12-16T08:37:00.812Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;huwj.work&#x2F;images&#x2F;python&#x2F;tensorflow&#x2F;0.png">
   
     <link rel="alternate" href="/atom.xml" title="Huwj.work" type="application/atom+xml">
   
@@ -163,7 +170,7 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-做系统遇到的问题" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-tensorflow安装" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -171,7 +178,7 @@ var themeMenus = {};
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      做系统遇到的问题
+      Tensorflow安装
     </h1>
   
 
@@ -179,7 +186,7 @@ var themeMenus = {};
     
     <div class="article-meta">
       
-	Posted on <a href="/Windows/%E5%81%9A%E7%B3%BB%E7%BB%9F%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
+	Posted on <a href="/Python/tensorflow%E5%AE%89%E8%A3%85/" class="article-date">
 	  <time datetime="2019-12-04T05:06:46.000Z" itemprop="datePublished">December 4, 2019</time>
 	</a>
 
@@ -191,20 +198,28 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Windows-cannot-be-installed-to-this-disk-The-selected-disk-has-an-MBR-partition-table"><a href="#Windows-cannot-be-installed-to-this-disk-The-selected-disk-has-an-MBR-partition-table" class="headerlink" title="Windows cannot be installed to this disk The selected disk has an MBR partition table##"></a>Windows cannot be installed to this disk The selected disk has an MBR partition table##</h3><p>界面，按shift + f10，</p>
-<p>1.进入dos界面。</p>
-<p>2.输入 diskpart。</p>
-<p>3.输入list disk。</p>
-<p>4.输入select disk 。</p>
-<p>5.输入clean 就是清除硬盘。</p>
-<p>6.转换格式，convert mbr重装系统遇到 Windows cannot be installed to this dis。</p>
-<a id="more"></a>
+        <h2 id="安装tensorflow"><a href="#安装tensorflow" class="headerlink" title="安装tensorflow"></a>安装tensorflow</h2><p>很麻烦，踩了很多坑，记录一下，因anaconda是比较简单的安装方式了。</p>
+<p>安装Anaconda 一定要安装内置python为3.5的Ancaonda，这里推荐Anaconda3-4.2.0-Windows-x86_64<br>下载地址<a href="https://repo.continuum.io/archive/index.html" target="_blank" rel="noopener">https://repo.continuum.io/archive/index.html</a><br>这里提一下，官网是最新的Anaconda，但是整因为时最新的，所以很多东西不能兼容，还是推荐安装稳定一些的版本。</p>
+<p>安装Anaconda，一路Next，没啥好说的，安装完之后，进入cmd检查一下<br><img src="/images/python/tensorflow/0.png" alt=""></p>
+<p>下一步 打开Anaconda Prompt 安装tensorflow</p>
+<p><strong>python -m pip install –upgrade pip</strong></p>
+<p>但是很可能遇到下面的错误：</p>
+<p><img src="/images/python/tensorflow/1.png" alt=""></p>
+<p>然后继续解决，输入  conda install pip（这步骤一定要在管理员身份启动Anaconda Prompt）</p>
+<p><img src="/images/python/tensorflow/2.png" alt=""></p>
+<p>然后输入  python -m pip install –upgrade pip</p>
+<p><img src="/images/python/tensorflow/3.png" alt=""></p>
+<p>安装tensorflow</p>
+<p><strong>pip install –upgrade –ignore-installed tensorflow</strong><br><img src="/images/python/tensorflow/4.png" alt=""></p>
+<p>进入到spyder进行测：</p>
+<p><img src="/images/python/tensorflow/5.png" alt=""></p>
+
       
     </div>
     <footer class="entry-meta entry-footer">
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/Windows/">Windows</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
 
       
       
@@ -253,19 +268,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/Python/tensorflow%E5%AE%89%E8%A3%85/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Html/html%E7%82%B9%E6%BB%B4/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Tensorflow安装
+          html点滴
         
       </div>
     </a>
   
   
-    <a href="/C/strcpy%E4%B8%8Esstrcpy/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Windows/%E5%81%9A%E7%B3%BB%E7%BB%9F%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">strcpy与sstrcpy</div>
+      <div class="article-nav-title">做系统遇到的问题</div>
     </a>
   
 </nav>
@@ -279,7 +294,7 @@ var a = new Donate({
     <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-cannot-be-installed-to-this-disk-The-selected-disk-has-an-MBR-partition-table"><span class="nav-number">1.</span> <span class="nav-text">Windows cannot be installed to this disk The selected disk has an MBR partition table##</span></a></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装tensorflow"><span class="nav-number">1.</span> <span class="nav-text">安装tensorflow</span></a></li></ol>
     
     </div>
   </aside>
